@@ -22,12 +22,12 @@ const StyledCarousel = styled(Carousel)`
   text-align: center;
   height: 160px;
   line-height: 160px;
-  background: #333;
+  background: rgba(0,0,0,0);
   overflow: hidden;
 `;
 
 const CarouselText  = styled.h2`
-  color: #FFF;
+  color: #000;
 `;
 
 const IconImage = styled.img`
@@ -127,11 +127,11 @@ class Home extends React.Component {
         <Card className = "HompagemMainCard" style = {{margin: '10% 0%'}} title= { 
             <div>
               <StyledCarousel autoplay>
-              <div> <CarouselText><IconImage src="https://i.imgur.com/NGldgtT.png" /> ETH donations for streamers</CarouselText></div>
-              <div> <CarouselText><IconImage src="https://i.imgur.com/DCCFSGZ.png" /> 0 fee, Streamer friendly</CarouselText></div>
-              <div> <CarouselText><Avatar size={42} src="https://i.imgur.com/V89IcdI.png"/> Top donation list</CarouselText></div>
+              <div> <CarouselText><IconImage src="https://cdn-images-1.medium.com/max/1600/1*Im3OAi_mu-yQoJyh6ceaDQ.png" /> DXN donations for streamers</CarouselText></div>
+              <div> <CarouselText><IconImage src="https://avatars3.githubusercontent.com/u/35559800?s=280&v=4" /> Low fee, Streamer friendly</CarouselText></div>
+              <div> <CarouselText><Avatar size={42} src="https://i.imgur.com/vhNAxeY.png"/> Top donation list</CarouselText></div>
               <div> <CarouselText><Icon type="unlock" theme="outlined" /> No API keys required </CarouselText></div>
-              <div> <CarouselText><IconImage src="https://i.imgur.com/NGldgtT.png" /> Enter address, get started!</CarouselText></div>
+              <div> <CarouselText><IconImage src="https://avatars3.githubusercontent.com/u/35559800?s=280&v=4" /> Enter address, get started!</CarouselText></div>
               </StyledCarousel> 
             </div>
           }
@@ -182,13 +182,6 @@ class Home extends React.Component {
             />
           </MarginRow>
         </Card>
-        <Divider style={{marginTop: '33px'}}>
-          <div style={{display: 'flex'}}>
-            <IconImage src="https://i.imgur.com/dutRNrc.png" /> 
-            <ArrowLeft/>
-            <span style={{color: "#000", fontSize: "16px", backgroundColor: "#FFF", padding: "5px 15px", borderRadius: "10px"}}> 0 fee, 0 setup, only 0x address</span>
-          </div>
-        </Divider>
         <Card className = "HomepageSubCard" style = {{margin: '10% 0%'}}  title= { "How it works" }>
           <Timeline>
             <Timeline.Item color="green">
@@ -205,7 +198,7 @@ class Home extends React.Component {
             </Timeline.Item>
             <Timeline.Item color="red">
               <div>Viewers donate to the streamer through the <Link to = {this.state.donatelink}><span className="red">Donate page</span></Link></div>
-              <div>(<a href="https://metamask.io" target="_blank"><Avatar size={20} src="https://i.imgur.com/VDMWCHx.png"/></a> Metamask is required)</div>
+              <div>(<a href="https://dexon.org/faucet" target="_blank"><Avatar size={20} src="https://i.imgur.com/vhNAxeY.png"/></a>    is required)</div>
             </Timeline.Item>
             <Timeline.Item>
               <div>
@@ -251,12 +244,6 @@ class Home extends React.Component {
               <a href={`${ETHERSCAN_URL}/address/${CONTRACT_ADDRESS}`} target='_blank'>
                 <IconImage src="assets/images/etherscan.png" /> 
                 <span className="linkUrlSpan">Contract</span>
-              </a>
-            </ReferenceCols>
-            <ReferenceCols>
-              <a href={MEDIUM_URL} target='_blank'>
-                <IconImage src="assets/images/medium.svg" /> 
-                <span className="linkUrlSpan" >Medium</span>
               </a>
             </ReferenceCols>
             <ReferenceCols>

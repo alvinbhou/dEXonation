@@ -107,9 +107,9 @@ class History extends React.Component {
           renderItem={item => (
             <List.Item className="donateRecord">
 							<List.Item.Meta
-								avatar={ <Avatar src="https://i.imgur.com/V89IcdI.png"  className="donateRecordAvatar" />	}
+								avatar={ <Avatar src="https://i.imgur.com/lz3YJ8x.png"  className="donateRecordAvatar" />	}
 								title= {`${item.donor}`} 
-								description= { <div><ETHIcon src="https://i.imgur.com/NGldgtT.png"  />{`${item.value}`} </div>}
+								description= { <div><ETHIcon src="https://avatars3.githubusercontent.com/u/35559800?s=280&v=4"  />{`${item.value}`} </div>}
 							/>
       
             </List.Item>

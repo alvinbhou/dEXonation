@@ -40,7 +40,6 @@ module.exports = {
             IS_DEV: IS_DEV,
             VERSION: JSON.stringify(packageJSON.version),
             GIT_HOMEPAGE: JSON.stringify(packageJSON.homepage),
-            MEDIUM_URL: JSON.stringify('https://medium.com/taipei-ethereum-meetup/0xdonate-an-ethereum-donate-service-for-streamers-a370f2b8f488'),
             WEB3_PROVIDER_URL: JSON.stringify('wss://ws-proxy.dexon.org'),
             NETWORK_VERSION: JSON.stringify('ropsten'),
             NETWORK_NAME: JSON.stringify('Ropsten Testnet'),

@@ -3,6 +3,8 @@ $silver:  #D3D3D3;
 $bronze: #cd7f32;
 
 .donateRecords {
+
+    border-radius: 20px;
     .donateRecord{
         &:nth-child(1) {
             .donateRecordAvatar{

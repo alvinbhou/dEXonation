@@ -16,7 +16,7 @@ export default () => (
             justify="space-around"
             align="middle"
         >
-        <Icon type="coffee" theme="outlined" /> <Link to = '/' style={{color: 'rgb(149, 74, 151)'}}>dEXonation</Link>
+        <Icon type="radar-chart" theme="outlined" /> <Link to = '/' style={{color: 'rgb(149, 74, 151)'}}>dEXonation</Link>
         </Header>
     </Row>
 )
