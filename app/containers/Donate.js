@@ -5,6 +5,7 @@ import { findGetParameter } from 'utils/util';
 import { DonateContractMetamask } from 'contracts/contract';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import 'styles/donate.scss';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -53,7 +54,7 @@ class DonateForm extends React.Component {
     console.log(donateTransactionOptions);
     DonateContractMetamask.methods.donate(values.daddr, values.ddonor, values.dmssg).send(donateTransactionOptions,function(error, result){
       if (!error) {
-        message.success(<span> View on <a href={`${ETHERSCAN_URL}/`+`transaction/${result}`}>Etherscan</a></span>, 8);
+        message.success(<span> View on <a href={`${ETHERSCAN_URL}/`+`transaction/${result}`}>DEXSCAN</a></span>, 8);
         console.log('r', result)
       } else {
         console.log('e', error)
@@ -84,12 +85,12 @@ class DonateForm extends React.Component {
         align="middle"
       >
         <Col style={{
-          width: '45vh'
+          width: '55vh'
         }}>
-          <Card title={
+          <Card className="DonateMainCard" title={
             <div>
-              <Avatar size={42} src="https://i.imgur.com/V89IcdI.png"/> 
-              <span>Donate Information</span>
+              <Avatar size={42} src="https://i.imgur.com/vhNAxeY.png"/> 
+              <span> Donate Information</span>
             </div>
           } style ={{marginTop: '12%'}}>
             <Form onSubmit={this.handleSubmit} className="login-form">
@@ -110,9 +111,9 @@ class DonateForm extends React.Component {
               </FormItem>
               <FormItem>
                 {getFieldDecorator('damount', {
-                  rules: [{ required: true, message: 'Please input the amount of ETH' }]
+                  rules: [{ required: true, message: 'Please input the amount of DXN' }]
                 })(
-                  <Input type="text" pattern="[0-9.]*" prefix={<Icon type="red-envelope" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="0.00 ETH" />
+                  <Input type="text" pattern="[0-9.]*" prefix={<Icon type="red-envelope" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="0.00 DXN" />
                 )}
               </FormItem>
               <FormItem>

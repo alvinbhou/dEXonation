@@ -1,17 +1,17 @@
 {
-  "name": "0xDonate",
+  "name": "dEXonation",
   "version": "0.0.1",
-  "description": "React x Webpack Boilerplate with Babel, SASS and Ant Design",
+  "description": "Next Generation Streaming Service",
   "author": "Alvin Hou",
   "license": "MIT",
-  "homepage": "https://github.com/CryoliteZ/0xDonate",
+  "homepage": "https://github.com/CryoliteZ/dEXonation",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
     "build": "webpack -p --progress --mode production --config webpack.config.build.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CryoliteZ/0xDonate.git"
+    "url": "https://github.com/CryoliteZ/dEXonation.git"
   },
   "dependencies": {
     "prop-types": "^15.6.2",

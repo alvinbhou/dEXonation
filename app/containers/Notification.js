@@ -23,7 +23,7 @@ const IconImage = styled.img`
 `;
 
 const DonateMessageWrapper = styled.div`
-	animation: popup 1s;
+	animation: popup 2s;
 `;
 
 const DonateMessageContainer = styled.div`
@@ -95,12 +95,12 @@ class NotiPage extends React.Component {
 					The donate messages will show up on this page
 				</PromptText> : null}
 				{ this.state.donationAlert ? 
-				<DonateMessageWrapper style={{marginTop:'3%'}}>
+				<DonateMessageWrapper style={{marginTop:'4%'}}>
 					<DonateMessageContainer>
 						<DonateMessageTitle style={{color: '#81D4FA'}}> {`${this.state.donorName}`} </DonateMessageTitle> 
 					</DonateMessageContainer>
 					<DonateMessageContainer>
-						<DonateMessageTitle style={{fontSize: '3em'}}> <IconImage src="https://i.imgur.com/NGldgtT.png" /> {`${this.state.donateValue}` }</DonateMessageTitle>
+						<DonateMessageTitle style={{fontSize: '3em'}}> <IconImage src="https://cdn-images-1.medium.com/max/1600/1*Im3OAi_mu-yQoJyh6ceaDQ.png" /> {`${this.state.donateValue} `} <span style={{fontSize: '18px'}}>DXN</span></DonateMessageTitle>
 					</DonateMessageContainer>
 					<DonateMessageContainer>
 						<DonateMessageTitle style={{fontSize: '3.2em', textAlign: 'center'}}> {`${this.state.donateMssg}`} </DonateMessageTitle>

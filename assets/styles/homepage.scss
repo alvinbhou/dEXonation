@@ -8,6 +8,11 @@
         padding: 0;
     }
 
+    .ant-carousel{
+        border-bottom: 1px solid rgb(149, 74, 151);
+    }
+    border-radius: 20px;
+
 }
 
 .HomepageSubCard{
@@ -21,6 +26,9 @@
             padding: 15px;
         }
     }
+
+    border-radius: 20px;
+  
 }
 
 .demoModal{
@@ -34,6 +42,8 @@
     .ant-modal-body{
         padding: 4px;
     }
+
+   
 
 }
 
