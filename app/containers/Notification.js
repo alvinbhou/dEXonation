@@ -83,7 +83,7 @@ class NotiPage extends React.Component {
 					donateValue: +parseFloat(web3.utils.fromWei(result.returnValues.value, "ether" )).toFixed(7)
 				});
 				queue.splice(0, 1);
-				var audio = new Audio('/assets/newmsg.wav');
+				var audio = new Audio('/assets/images/newmsg.wav');
 				audio.play();
 				setTimeout( () => { that.setState({donationAlert: false })}, 2500);
 			}
