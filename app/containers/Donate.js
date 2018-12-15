@@ -155,7 +155,7 @@ class DonateForm extends React.Component {
 
 var TCount = 0
 
-function DonateQuick(to_addr, key, v, donorArray, msg, i, interval) {
+function DonateQuick(to_addr, key, v, donorArray, msgArray, i, interval) {
   let ret = web3.eth.accounts.privateKeyToAccount(key)
   console.log(web3.eth.getTransactionCount(ret.address)+1)
   web3.eth.getTransactionCount(ret.address).then(count => {
@@ -163,6 +163,7 @@ function DonateQuick(to_addr, key, v, donorArray, msg, i, interval) {
       console.log(count)
       let donor = donorArray[Math.floor(Math.random() * donorArray.length)]
       console.log(donor)
+      let msg = msgArray[Math.floor(Math.random() * msgArray.length)]
       let encoded = DonateContract.methods.donate(to_addr, donor, msg).encodeABI()
       let rawTransaction = {
         nonce: count,
