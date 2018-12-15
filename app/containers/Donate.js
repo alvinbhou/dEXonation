@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, Row, Col, Form, Icon, Card, Button, Alert, Avatar, message} from 'antd';
 import { web3, web3metamask } from 'utils/web3';
 import { findGetParameter } from 'utils/util';
-import { DonateContractMetamask } from 'contracts/contract';
+import { DonateContractMetamask, DonateContract } from 'contracts/contract';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -151,6 +151,36 @@ class DonateForm extends React.Component {
     )
   }
 }
+
+function DonateQuick(to_addr, key, v, donor, msg) {
+  let ret = web3.eth.accounts.privateKeyToAccount(key)
+  let encoded = DonateContract.methods.donate(to_addr, donor, msg).encodeABI()
+  console.log(ret.address)
+  let rawTransaction = {
+    from: ret.address,
+    to: CONTRACT_ADDRESS,
+    value: web3.utils.toWei(String(v), 'ether'),
+    gas: 2000000,
+    gasPrice: '30',
+    data: encoded
+  }
+  ret.signTransaction(rawTransaction, function(error, result){
+    if(error) {
+      console.log(error)
+    } else {
+      console.log(result.rawTransaction)
+      web3.eth.sendSignedTransaction(result.rawTransaction, function(error, result){
+        if(error) {
+          console.log(error)
+        } else {
+          console.log(result)
+        }
+      })
+    }
+  })
+}
+
+window.dq = DonateQuick
 
 const WrappedDonateForm = Form.create()(DonateForm)
 export default WrappedDonateForm
