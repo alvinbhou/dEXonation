@@ -11,10 +11,10 @@ const PromptText = styled.div`
 	margin-top: 20%;
 	font-size: 3em;
 	text-align: center;
-	-webkit-transition: opacity 5s ease-in-out;
-	-moz-transition: opacity 5s ease-in-out;
-	-ms-transition: opacity 5s ease-in-out;
-	-o-transition: opacity 5s ease-in-out;
+	// -webkit-transition: opacity 5s ease-in-out;
+	// -moz-transition: opacity 5s ease-in-out;
+	// -ms-transition: opacity 5s ease-in-out;
+	// -o-transition: opacity 5s ease-in-out;
 	opacity: 1;
 `
 const IconImage = styled.img`
@@ -23,7 +23,7 @@ const IconImage = styled.img`
 `;
 
 const DonateMessageWrapper = styled.div`
-	animation: popup 2s;
+	animation: popup 1s;
 `;
 
 const DonateMessageContainer = styled.div`
@@ -63,20 +63,34 @@ class NotiPage extends React.Component {
 		console.log(DonateContract);
 		setTimeout( () => { this.setState({isBlank: true })}, 3000);
 		let that = this;
+		let queue = [];
 		DonateContract.events.NewDonation().on('data', function(result){
-			console.log(result);
 			let addr = findGetParameter('addr');
 			if(addr.toLowerCase() != result.returnValues.raddr.toLowerCase()) return;
-			that.setState({
-				donationAlert: true,
-				donorAddress: result.returnValues.daddr,
-				donorName: result.returnValues.donor,
-				recvAddress: result.returnValues.raddr,
-				donateMssg: result.returnValues.message,
-				donateValue: +parseFloat(web3.utils.fromWei(result.returnValues.value, "ether" )).toFixed(7)
-			})
-			setTimeout( () => { that.setState({donationAlert: false })}, 15000);
+			queue.push(result);
 		})
+
+		setInterval(function(){
+			if(queue.length > 0){
+				let result = queue[0];
+				console.log(result);
+				that.setState({
+					donationAlert: true,
+					donorAddress: result.returnValues.daddr,
+					donorName: result.returnValues.donor,
+					recvAddress: result.returnValues.raddr,
+					donateMssg: result.returnValues.message,
+					donateValue: +parseFloat(web3.utils.fromWei(result.returnValues.value, "ether" )).toFixed(7)
+				});
+				queue.splice(0, 1);
+				setTimeout( () => { that.setState({donationAlert: false })}, 1200);
+			}
+			else{
+				// setTimeout( () => { that.setState({donationAlert: false })}, 15000);
+			}
+
+		}, 1500);
+		
     }
 
     render() {
