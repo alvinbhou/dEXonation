@@ -153,30 +153,42 @@ class DonateForm extends React.Component {
   }
 }
 
-function DonateQuick(to_addr, key, v, donor, msg) {
+var TCount = 0
+
+function DonateQuick(to_addr, key, v, donorArray, msg, i, interval) {
   let ret = web3.eth.accounts.privateKeyToAccount(key)
-  let encoded = DonateContract.methods.donate(to_addr, donor, msg).encodeABI()
-  console.log(ret.address)
-  let rawTransaction = {
-    from: ret.address,
-    to: CONTRACT_ADDRESS,
-    value: web3.utils.toWei(String(v), 'ether'),
-    gas: 2000000,
-    gasPrice: '30',
-    data: encoded
-  }
-  ret.signTransaction(rawTransaction, function(error, result){
-    if(error) {
-      console.log(error)
-    } else {
-      console.log(result.rawTransaction)
-      web3.eth.sendSignedTransaction(result.rawTransaction, function(error, result){
+  console.log(web3.eth.getTransactionCount(ret.address)+1)
+  web3.eth.getTransactionCount(ret.address).then(count => {
+    for(let j = 0; j < i; ++j) {
+      console.log(count)
+      let donor = donorArray[Math.floor(Math.random() * donorArray.length)]
+      console.log(donor)
+      let encoded = DonateContract.methods.donate(to_addr, donor, msg).encodeABI()
+      let rawTransaction = {
+        nonce: count,
+        from: ret.address,
+        to: CONTRACT_ADDRESS,
+        value: web3.utils.toWei(String((v*Math.random()*2).toFixed(5)), 'ether'),
+        gas: 2000000,
+        gasPrice: '40',
+        data: encoded,
+      }
+      console.log(rawTransaction)
+      ret.signTransaction(rawTransaction, function(error, result){
         if(error) {
-          console.log(error)
+          console.log("Failed signing transaction: ", error)
         } else {
-          console.log(result)
+          console.log(result.rawTransaction)
+          web3.eth.sendSignedTransaction(result.rawTransaction, function(error, result){
+            if(error) {
+              console.log(error)
+            } else {
+              console.log(result)
+            }
+          })
         }
       })
+      count += 1
     }
   })
 }
