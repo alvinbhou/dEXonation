@@ -1,0 +1,48 @@
+.HompagemMainCard{
+
+    .ant-card-head {
+        padding: 0;
+    }
+
+    .ant-card-head-title{
+        padding: 0;
+    }
+
+}
+
+.HomepageSubCard{
+
+    .ant-card-body{
+        * {
+            font-size: 16px;
+        }
+
+        @media screen and(max-width: 400px){
+            padding: 15px;
+        }
+    }
+}
+
+.demoModal{
+   
+    min-width: 66.6% !important;
+    
+    .ant-modal-title{
+        text-align: center;
+    }
+
+    .ant-modal-body{
+        padding: 4px;
+    }
+
+}
+
+.linkUrlSpan{
+    color: rgba(0, 0, 0, 0.8);
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+
