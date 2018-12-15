@@ -83,13 +83,11 @@ class NotiPage extends React.Component {
 					donateValue: +parseFloat(web3.utils.fromWei(result.returnValues.value, "ether" )).toFixed(7)
 				});
 				queue.splice(0, 1);
-				setTimeout( () => { that.setState({donationAlert: false })}, 1200);
+				var audio = new Audio('/assets/newmsg.wav');
+				audio.play();
+				setTimeout( () => { that.setState({donationAlert: false })}, 2500);
 			}
-			else{
-				// setTimeout( () => { that.setState({donationAlert: false })}, 15000);
-			}
-
-		}, 1500);
+		},2700);
 		
     }
 
@@ -104,10 +102,6 @@ class NotiPage extends React.Component {
 				justify="space-around"
 				align="top"
 				>
-
-				{!this.state.donationAlert ? <PromptText style={ this.state.isBlank ? {opacity: 0} : null}>
-					The donate messages will show up on this page
-				</PromptText> : null}
 				{ this.state.donationAlert ? 
 				<DonateMessageWrapper style={{marginTop:'4%'}}>
 					<DonateMessageContainer>
