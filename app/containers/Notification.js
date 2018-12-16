@@ -60,8 +60,9 @@ class NotiPage extends React.Component {
     }
 
     componentDidMount () {
+		let idle_count = 0;
 		console.log(DonateContract);
-		setTimeout( () => { this.setState({isBlank: true })}, 3000);
+	 	this.setState({isBlank: true });
 		let that = this;
 		let queue = [];
 		DonateContract.events.NewDonation().on('data', function(result){
@@ -83,11 +84,20 @@ class NotiPage extends React.Component {
 					donateValue: +parseFloat(web3.utils.fromWei(result.returnValues.value, "ether" )).toFixed(7)
 				});
 				queue.splice(0, 1);
-				var audio = new Audio('/assets/images/newmsg.wav');
+				var audio = new Audio( 'https://cryolite.me/dEXonation/assets/images/newmsg.wav');
 				audio.play();
 				setTimeout( () => { that.setState({donationAlert: false })}, 2500);
+				idle_count =0;
+			}
+			else{
+				idle_count += 1;
+			}
+			if(idle_count > 10){
+				location.reload();
 			}
 		},2700);
+
+
 		
     }
 
