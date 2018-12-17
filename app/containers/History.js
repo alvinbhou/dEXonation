@@ -27,6 +27,7 @@ class History extends React.Component {
 		let that = this;
 		if(web3.utils.isAddress(addr)){
 			DonateContract.methods.getDonationsCount(addr).call( function (error, dcount) {
+				let drealcount = dcount;
 				if(!error){
 					if(dcount == 0){
 						that.setState({loading:false});
@@ -35,13 +36,18 @@ class History extends React.Component {
 					let donateList = [];
 					for(let i = 0; i < dcount; ++i){
 						DonateContract.methods.getDonation(addr, i).call(function(error, result){
-							let value = web3.utils.fromWei(result[0], "ether" );
-							let donor = result[1];
-							donateList.push({
-								donor: donor,
-								value: +parseFloat(value)
-							});
-							if(donateList.length == dcount){
+							if(result){
+								let value = web3.utils.fromWei(result[0], "ether" );
+								let donor = result[1];
+								donateList.push({
+									donor: donor,
+									value: +parseFloat(value)
+								});
+							}
+							else{
+								drealcount = drealcount - 1;
+							}
+							if(donateList.length == drealcount){
 								that.setState({data: that.genDonateList(donateList)});
 								that.setState({loading:false});
 							}

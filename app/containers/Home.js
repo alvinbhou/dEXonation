@@ -128,7 +128,7 @@ class Home extends React.Component {
             <div>
               <StyledCarousel autoplay>
               <div> <CarouselText><IconImage src="https://cdn-images-1.medium.com/max/1600/1*Im3OAi_mu-yQoJyh6ceaDQ.png" /> DXN donations for streamers</CarouselText></div>
-              <div> <CarouselText><IconImage src="https://avatars3.githubusercontent.com/u/35559800?s=280&v=4" /> Low fee, Streamer friendly</CarouselText></div>
+              <div> <CarouselText><IconImage src="https://avatars3.githubusercontent.com/u/35559800?s=280&v=4" /> Low fee, Low latency, High TPS</CarouselText></div>
               <div> <CarouselText><Avatar size={42} src="https://i.imgur.com/vhNAxeY.png"/> Top donation list</CarouselText></div>
               <div> <CarouselText><Icon type="unlock" theme="outlined" /> No API keys required </CarouselText></div>
               <div> <CarouselText><IconImage src="https://avatars3.githubusercontent.com/u/35559800?s=280&v=4" /> Enter address, get started!</CarouselText></div>
@@ -140,7 +140,7 @@ class Home extends React.Component {
             <div>Wallet address</div> 
             <Input 
               value={ this.state.addr.length ? this.state.addr : ''}
-              placeholder="Ethereum Address" onChange={evt => this.updateInputValue(evt)}/>
+              placeholder="DEXON Address" onChange={evt => this.updateInputValue(evt)}/>
             </MarginRow>
           <MarginRow>
             <Input

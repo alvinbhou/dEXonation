@@ -3,7 +3,7 @@
 > An DXN donate service for streamers, based on smart contract.
 
 ## Demo
-[<img src="./assets/images/demo.gif">](https://youtu.be/uah9darbB4Y)
+<img src="./assets/images/demo.gif">
 
 Viewers donate through DekuSan, and the donate message immediately pops up on top of the stream!
 
@@ -20,14 +20,19 @@ Confirming the transaction and BOOM, you successfully completed the donation!
 
 Streamer setups browser source for streaming with the Notification link, then the donate messages will pop up on the stream once a transaction is confirmed.
 
+> Browser Source Example
+> <img src="https://i.imgur.com/R9NvhL2.png" width="600px">
+
+
 ### History
-<img src="https://i.imgur.com/fDA0owJ.png" width="480px">
+<img src="https://i.imgur.com/rSLzS0p.png" width="480px">
 
 All the donate records are stored on the blockchain. Streamers can easily check their top donors.
 
 
 ## Features
-* Low fee
+* Low fee, Low Latency
+* High TPS, Fully Decentralized by DEXON
 * 0 setup, no API keys required
 * Enter your address and get started!
 
